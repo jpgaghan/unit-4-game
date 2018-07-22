@@ -1,0 +1,24 @@
+#rowspacer{
+    height: 150px;
+}
+
+#rowmiddle{
+    height: 50px;
+}
+
+img{
+    height:100px;
+}
+
+#fightstage{
+    display: none;
+}
+
+#attackresults{
+    height: 100px;
+}
+
+.progress{
+    display: none;
+}
+
