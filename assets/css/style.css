@@ -21,7 +21,9 @@ img{
 #lose{
     display: none;
 }
-
+#navbar {
+    display: none;
+}
 #attackresults{
     height: 100px;
 }

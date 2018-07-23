@@ -28,9 +28,15 @@ var gameContent =
 
         winloseTest: function() {
             if (character[2]<=0) {
-                $("#" + oppDiv).remove().clone().appendTo("#opponentwin", "." + oppDiv);
+                $("#" + charDiv).remove().clone().appendTo("." + charDiv);
+                $("#" + oppDiv).appendTo("." + oppDiv);
+                $("#" + oppDiv).remove().clone().appendTo("#opponentwin");
                 $("#fightstage").hide();
                 $(".progress").hide();
+                $("#prog" + charDiv[4]).css("width", "100%");
+                $("#prog" + oppDiv[4]).css("width", "100%");
+                $("h1").text("You Lost!");
+                $("#navbar").show();
                 $("#lose").show();
             } 
             else if (opponent[2]<=0) {
@@ -43,8 +49,10 @@ var gameContent =
                 if (this.wins !== 3) {
                 $("#selectionscreen").show();
                 $(".progress").hide();
-                }   else {$("#" + charDiv).remove().clone().appendTo("#characterwin", "." + charDiv);
+                }   else {
+                        $("#" + charDiv).remove().clone().appendTo("#characterwin");
                         $("#prog" + charDiv[4]).css("width", "100%");
+                        $("h1").text("You Won!");
                         $("#win").show();
                         $(".progress").hide();}
             }
@@ -74,6 +82,7 @@ var gameContent =
 $(document).ready(function () {
     $(".char").click(function () {
         if (charDiv===undefined) {
+            gameContent.backgroundsong.play();
             charDiv = this.id;
             character = gameContent[this.id];
             console.log(character)
@@ -90,6 +99,40 @@ $(document).ready(function () {
 
     $(".attack").click(function () {
         gameContent.attackNow();
+    })
+
+    $("#resetl").click(function () {
+        $("#" +oppDiv).remove().clone().appendTo("." + oppDiv);
+        $("#lose").hide();
+        $("#navbar").hide();
+        $("#selectionscreen").show();
+        $("#selectionscreen .char").show();
+        gameContent.characterstartHealth= 0
+        gameContent.opponentstartHealth= 0
+        gameContent.wins=0
+        charDiv=undefined
+        oppDiv=undefined
+        gameContent.char0 = [100, 10, 200, new Audio ("assets/sound/trex.mp3")]
+        gameContent.char1 = [4, 5, 40, new Audio("assets/sound/raptor.mp3")]
+        gameContent.char2 = [3, 15, 25, new Audio ("assets/sound/fish.mp3")]
+        gameContent.char3 = [5, 16, 20, new Audio("assets/sound/pterodactyl.mp3")]
+    })
+    
+    $("#resetw").click(function () {
+        $("#" +charDiv).remove().clone().appendTo("." + charDiv);
+        $("#win").hide();
+        $("#navbar").hide();
+        $("#selectionscreen").show();
+        $("#selectionscreen .char").show();
+        gameContent.characterstartHealth= 0
+        gameContent.opponentstartHealth= 0
+        gameContent.wins=0
+        charDiv=undefined
+        oppDiv=undefined
+        gameContent.char0 = [100, 10, 200, new Audio ("assets/sound/trex.mp3")]
+        gameContent.char1 = [4, 5, 40, new Audio("assets/sound/raptor.mp3")]
+        gameContent.char2 = [3, 15, 25, new Audio ("assets/sound/fish.mp3")]
+        gameContent.char3 = [5, 16, 20, new Audio("assets/sound/pterodactyl.mp3")]
     })
 })
 
