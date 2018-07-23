@@ -15,8 +15,12 @@ var gameContent =
         attackNow: function () {
             character[3].currentTime = 0
             character[3].play();
-            this.opponentstartHealth = opponent[2];
-            this.characterstartHealth = character[2];
+            if (this.characterstartHealth<=0) {
+                this.opponentstartHealth = opponent[2];
+                this.characterstartHealth = character[2];
+            } else if (this.opponentstartHealth<=0) {
+                this.opponentstartHealth = opponent[2];  
+            }
             character[2] = character[2] - opponent[1];
             opponent[2] = opponent[2] - character[0];
             this.progressbarCalculation();
@@ -41,8 +45,6 @@ var gameContent =
                 $(".progress").hide();
                 }   else {$("#" + charDiv).remove().clone().appendTo("#characterwin", "." + charDiv);
                         $("#prog" + charDiv[4]).css("width", "100%");
-                        character[3].pause();
-                        backgroundsound.play();
                         $("#win").show();
                         $(".progress").hide();}
             }
@@ -71,8 +73,6 @@ var gameContent =
 
 $(document).ready(function () {
     $(".char").click(function () {
-        gameContent.backgroundsong.loop = true;
-        gameContent.backgroundsong.play();
         if (charDiv===undefined) {
             charDiv = this.id;
             character = gameContent[this.id];
