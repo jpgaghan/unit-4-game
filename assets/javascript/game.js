@@ -33,15 +33,21 @@ var gameContent =
                 $("#" + oppDiv).remove().clone().appendTo("#opponentwin");
                 $("#fightstage").hide();
                 $(".progress").hide();
+                $("#prog" + charDiv[4]).removeAttr("style");
                 $("#prog" + charDiv[4]).css("width", "100%");
+                $("#prog" + charDiv[4]).text("100%");
+                $("#prog" + oppDiv[4]).removeAttr("style");
                 $("#prog" + oppDiv[4]).css("width", "100%");
+                $("#prog" + oppDiv[4]).text("100%");
                 $("h1").text("You Lost!");
                 $("#navbar").show();
                 $("#lose").show();
             } 
             else if (opponent[2]<=0) {
                 $("#" + oppDiv).remove().clone().appendTo("." + oppDiv);
+                $("#prog" + oppDiv[4]).removeAttr("style");
                 $("#prog" + oppDiv[4]).css("width", "100%");
+                $("#prog" + oppDiv[4]).text("100%");
                 $("." + oppDiv).hide();
                 $("#fightstage").hide();
                 $(".progress").hide();
@@ -51,7 +57,6 @@ var gameContent =
                 $(".progress").hide();
                 }   else {
                         $("#" + charDiv).remove().clone().appendTo("#characterwin");
-                        $("#prog" + charDiv[4]).css("width", "100%");
                         $("h1").text("You Won!");
                         $("#win").show();
                         $(".progress").hide();}
@@ -74,8 +79,10 @@ var gameContent =
         },
 
         attackResult: function() {
-            $("#attackresults").html("Your current health is: " + character[2] +"hp<br>Your attack damage: " + character[0] +"hp<br>Opponents current health is: " + opponent[2] +"hp<br>Opponents attack damage:" + opponent[1] +"hp");
-            character[0]=character[0]*2;
+            if (character[2] > 0 && opponent[2] > 0) {$("#attackresults").html("Your current health is: " + character[2] +"hp<br>Your attack damage: " + character[0] +"hp<br>Opponents current health is: " + opponent[2] +"hp<br>Opponents attack damage:" + opponent[1] +"hp");
+            character[0]=character[0]*2;}
+            else  {$("#attackresults").html("");
+            character[0]=character[0]*2}
         }
     }
 
@@ -121,6 +128,9 @@ $(document).ready(function () {
     
     $("#resetw").click(function () {
         $("#" +charDiv).remove().clone().appendTo("." + charDiv);
+        $("#prog" + charDiv[4]).removeAttr("style");
+        $("#prog" + charDiv[4]).css("width", "100%");
+        $("#prog" + charDiv[4]).text("100%");
         $("#win").hide();
         $("#navbar").hide();
         $("#selectionscreen").show();
