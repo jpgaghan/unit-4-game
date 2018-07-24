@@ -80,7 +80,8 @@ var gameContent =
     }
 
 $(document).ready(function () {
-    $(".char").click(function () {
+    $(document).on('click','.char',function () {
+        console.log("I was clicked");
         if (charDiv===undefined) {
             gameContent.backgroundsong.play();
             charDiv = this.id;
@@ -106,7 +107,7 @@ $(document).ready(function () {
         $("#lose").hide();
         $("#navbar").hide();
         $("#selectionscreen").show();
-        $("#selectionscreen .char").show();
+        $("#selectionscreen .character").show();
         gameContent.characterstartHealth= 0
         gameContent.opponentstartHealth= 0
         gameContent.wins=0
@@ -123,7 +124,7 @@ $(document).ready(function () {
         $("#win").hide();
         $("#navbar").hide();
         $("#selectionscreen").show();
-        $("#selectionscreen .char").show();
+        $("#selectionscreen .character").show();
         gameContent.characterstartHealth= 0
         gameContent.opponentstartHealth= 0
         gameContent.wins=0
