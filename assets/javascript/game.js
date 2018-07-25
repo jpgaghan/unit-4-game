@@ -3,10 +3,10 @@ var charDiv, oppDiv, character, opponent
 var gameContent =
 
     {
-        char0: [100, 10, 200, new Audio ("assets/sound/trex.mp3")],
+        char0: [5, 4, 40, new Audio ("assets/sound/trex.mp3")],
         char1: [4, 5, 40, new Audio("assets/sound/raptor.mp3")],
-        char2: [3, 15, 25, new Audio ("assets/sound/fish.mp3")],
-        char3: [5, 16, 20, new Audio("assets/sound/pterodactyl.mp3")],
+        char2: [3, 8, 40, new Audio ("assets/sound/fish.mp3")],
+        char3: [5, 9, 40, new Audio("assets/sound/pterodactyl.mp3")],
         backgroundsong: new Audio("assets/sound/jpark.mp3"),
         wins: 0,
         opponentstartHealth: 0,
@@ -120,10 +120,10 @@ $(document).ready(function () {
         gameContent.wins=0
         charDiv=undefined
         oppDiv=undefined
-        gameContent.char0 = [100, 10, 200, new Audio ("assets/sound/trex.mp3")]
+        gameContent.char0 = [5, 4, 40, new Audio ("assets/sound/trex.mp3")]
         gameContent.char1 = [4, 5, 40, new Audio("assets/sound/raptor.mp3")]
-        gameContent.char2 = [3, 15, 25, new Audio ("assets/sound/fish.mp3")]
-        gameContent.char3 = [5, 16, 20, new Audio("assets/sound/pterodactyl.mp3")]
+        gameContent.char2 = [3, 8, 25, new Audio ("assets/sound/fish.mp3")]
+        gameContent.char3 = [5, 9, 40, new Audio("assets/sound/pterodactyl.mp3")]
     })
     
     $("#resetw").click(function () {
@@ -140,10 +140,10 @@ $(document).ready(function () {
         gameContent.wins=0
         charDiv=undefined
         oppDiv=undefined
-        gameContent.char0 = [100, 10, 200, new Audio ("assets/sound/trex.mp3")]
+        gameContent.char0 = [5, 4, 40, new Audio ("assets/sound/trex.mp3")]
         gameContent.char1 = [4, 5, 40, new Audio("assets/sound/raptor.mp3")]
-        gameContent.char2 = [3, 15, 25, new Audio ("assets/sound/fish.mp3")]
-        gameContent.char3 = [5, 16, 20, new Audio("assets/sound/pterodactyl.mp3")]
+        gameContent.char2 = [3, 8, 40, new Audio ("assets/sound/fish.mp3")]
+        gameContent.char3 = [5, 9, 40, new Audio("assets/sound/pterodactyl.mp3")]
     })
 })
 
